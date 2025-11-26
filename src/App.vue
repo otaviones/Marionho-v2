@@ -42,17 +42,27 @@ const projetos = ref([
 
       <section id="projects">
         <h2>Nossos Projetos</h2>
-        <div class="lista-obras">
-          <div v-for="item in projetos" :key="item.id" class="projeto-card">
-            <img :src="item.img" :alt="item.titulo" />
-            <div class="card-info">
-              <h3>{{ item.titulo }}</h3>
-              <p>{{ item.desc }}</p>
+        <div class="lista-obras-vertical">
+          <div v-for="item in projetos" :key="item.id" class="projeto-item">
+
+            <div class="projeto-img-wrapper">
+              <img :src="item.img" :alt="item.titulo" class="fachada-img" />
             </div>
+
+            <div class="projeto-infor-bloco">
+                <div class="linha-vertical-wrapper">
+                  <img src="/img/Linha.png" alt="marcador" class="linha-azul" />
+                </div>
+
+                <div class="texto-info">
+                  <h3>{{ item.titulo }}</h3>
+                  <p>{{ item.desc }}</p>
+                </div>
+            </div>
+
           </div>
         </div>
       </section>
-
 
       <section id="location">
         <h2>Onde Estamos</h2>
@@ -207,20 +217,95 @@ section {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.lista-obras {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+.lista-obras-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
-.projeto-card {
-  border: 1px solid #eee;
+.projeto-item {
+  /* border: 1px solid #eee;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   background-color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: none;
+  transition:none; */
 }
+
+.projeto-img-wrapper {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.fachada-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.projeto-infor-bloco {
+  display: flex;
+  align-items: stretch;
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.linha-vertical-wrapper {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.linha-azul {
+  height: 80px;
+  width: auto;
+}
+
+.texto-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.texto-info h3 {
+  font-size: 1.8rem;
+  color: #076AAE;
+  margin-bottom: 10px;
+}
+
+.texto-info p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .projeto-img-wrapper {
+    height: 250px;
+  }
+
+  .projeto-info-bloco {
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+
+  .linha-vertical-wrapper {
+    margin-right: 15px;
+  }
+  .linha-azul {
+    height: 60px;
+  }
+
+  .texto-info h3 {
+    font-size: 1.5rem;
+  }
+}
+
 
 .projeto-card:hover {
   transform: translateY(-10px);
