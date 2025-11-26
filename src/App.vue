@@ -32,6 +32,11 @@ const projetos = ref([
         <h1>Construindo Sonhos</h1>
         <p>Solidez e confiança em cada metro quadrado.</p>
       </section>
+      
+      <section id="about">
+        <h2>Quem Somos</h2>
+        <p>Somos uma empresa dedicada a transformar ideias em realidade, com foco em inovação e sustentabilidade.</p>
+      </section>
 
       <section id="projects">
         <h2>Nossos Projetos</h2>
@@ -46,10 +51,6 @@ const projetos = ref([
         </div>
       </section>
 
-      <section id="about">
-        <h2>Quem Somos</h2>
-        <p>Somos uma empresa dedicada a transformar ideias em realidade, com foco em inovação e sustentabilidade.</p>
-      </section>
 
       <section id="location">
         <h2>Onde Estamos</h2>
