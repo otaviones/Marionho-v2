@@ -15,7 +15,9 @@ const projetos = ref([
 
     <header class="navbar">
       <div class="logo">
-        <img src="/img/Logo principal.png" alt="Logo" height="50">
+        <a href="#home">
+          <img src="/img/Logo principal.png" alt="Logo" height="50">
+        </a>
       </div>
       <nav>
         <a href="#home">Início</a>
@@ -109,18 +111,45 @@ nav a {
   color: #333;
   font-weight: bold;
   font-size: 0.95rem;
+  position: relative;
+  padding-bottom: 5px;
   transition: color 0.3s;
+}
+
+nav a::after {
+  content:'';
+  position: absolute; 
+  width: 0%;
+  height: 2px; 
+  bottom: 0;
+  left: 0;
+  background-color: #076AAE;
+  transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 nav a:hover {
   color: #076AAE;
 }
 
+.btn-contato::after {
+  display: none; /* Remove underline effect for button */
+}
+
+
 .btn-contato {
   background-color: #076AAE;
   color: white !important;
   padding: 10px 20px;
   border-radius: 5px;
+  transition: background-color 0.3s, ease;
+}
+
+.btn-contato:hover {
+  background-color: #054f7a;
 }
 
 
@@ -188,6 +217,14 @@ section {
   border: 1px solid #eee;
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projeto-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .projeto-card img {
